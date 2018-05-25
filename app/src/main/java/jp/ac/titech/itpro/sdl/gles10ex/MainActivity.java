@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
 
     private GLSurfaceView glView;
     private SimpleRenderer renderer;
-
     private Cube cube;
     private Pyramid pyramid;
+    private Yama yama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,11 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         renderer = new SimpleRenderer();
         cube = new Cube();
         pyramid = new Pyramid();
+        yama = new Yama();
         renderer.setObj(cube, 0, 0, 0);
         glView.setRenderer(renderer);
+        seekBarX.setProgress(30);
+        seekBarY.setProgress(30);
     }
 
     @Override
@@ -71,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             break;
         case R.id.item_pyramid:
             renderer.setObj(pyramid, 0, 0, 0);
+            break;
+        case R.id.item_yama:
+            renderer.setObj(yama, 0, 0, 0);
             break;
         }
         return true;
